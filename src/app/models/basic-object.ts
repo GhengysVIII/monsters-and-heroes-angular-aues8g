@@ -9,14 +9,14 @@ export class BasicObject {
   objType : ObjectType;
   defense : number;
   rarity : ObjectRarity;
-  damages: Damage[];
+  @Type(() => Damage) damages: Damage[];
 
   constructor(objType: ObjectType){
     this.objType = objType;
     this.name = "";
     this.defense = 0;
     this.rarity = ObjectRarity.unknown;
-    @Type(() => Damage) this.damages = new Array<Damage>();
+     this.damages = new Array<Damage>();
     
   }
 

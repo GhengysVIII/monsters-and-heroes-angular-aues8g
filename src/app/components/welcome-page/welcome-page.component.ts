@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service'
-
-import { PlayableCharacter } from '../../models/characters/playable-character';
-
 
 @Component({
   selector: 'app-welcome-page',
@@ -11,10 +7,9 @@ import { PlayableCharacter } from '../../models/characters/playable-character';
 })
 export class WelcomePageComponent implements OnInit {
 
-  constructor(private data: DataService) { }
-  
+  constructor() { }
+
   ngOnInit() {
-    //this.data = this.dt.myCharacters;
   }
 
 }
