@@ -6,7 +6,7 @@ import { Damage } from '../others/damage';
 export class Weapon extends BasicObject{
   
 
-  constructor(objData?: {}){
-    super( ObjectType.weapon, objData || null );
+  constructor(){
+    super( ObjectType.weapon );
   }
 }

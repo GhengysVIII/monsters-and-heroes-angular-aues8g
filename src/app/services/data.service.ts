@@ -24,15 +24,16 @@ export class DataService {
         this.changeParam(parametersMock);
         let cha : PlayableCharacter;
         myCharactersMock.forEach((c)=> {
+          //cha = new PlayableCharacter();
           cha = wrap.playableCharacterToClass(c);
-          console.log(JSON.stringify(cha));
-          console.log(cha);
+          //console.log(wrap.playableCharacterToJSON(cha));
+          //console.log(JSON.stringify(cha));
+          //console.log(cha);
           this.addMyCharacters(cha);
         });
+        console.log(this.myCharacters);
       }
-      finally{
-
-      }
+      finally{}
       
       /*try(){
       // Code which can cause an exception.

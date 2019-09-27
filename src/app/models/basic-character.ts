@@ -1,5 +1,4 @@
-
-import { Type, plainToClass } from "class-transformer";
+import { Type } from "class-transformer";
 
 import { BasicObject } from './basic-object';
 import { CharacterType } from '../enums/character-type.enum';
@@ -23,22 +22,36 @@ export class BasicCharacter {
   hp: number | 0;
   @Type(() => Wears) wears: Wears ;
   @Type(() => Inventory) inventory: Inventory ;
-  weapons: {
-    right: Weapon;
-    left: Weapon;
-  };
-
+  @Type(() => WeaponsInHands) weapons: WeaponsInHands;
 
   constructor(chartype: CharacterType ){
     this.chartype = chartype; 
+    this.id = 0;
+    this.name = "";
+    this.hp = 0;
+    this.wears = new Wears();
+    this.wears.arms = null;
+    this.wears.body = null;
+    this.wears.foots = null;
+    this.wears.hands = null;
+    this.wears.head = null;
+    this.wears.neck = null;
+    this.wears.ringL = null;
+    this.wears.ringR = null;
+    this.inventory = new Inventory();
+    this.inventory.maxHeight = 0;
+    this.inventory.objects = new Array<BasicObject>();
+    this.weapons = new WeaponsInHands();
+    this.weapons.left = null;
+    this.weapons.right = null;
   }
 }
 
 export class Wears {
   @Type(() => Helmet) head: Helmet = null;
-  @Type(() => Armor) body: Armor;
-  @Type(() => Gloves) hands: Gloves;
-  @Type(() => Boots) foots: Boots;
+  @Type(() => Armor) body: Armor = null;
+  @Type(() => Gloves) hands: Gloves = null;
+  @Type(() => Boots) foots: Boots = null;
   @Type(() => Bracelets) arms: Bracelets;
   @Type(() => Necklace) neck: Necklace;
   @Type(() => Ring) ringL: Ring;
@@ -48,4 +61,9 @@ export class Wears {
 export class Inventory {
     maxHeight : number;
     @Type(() => BasicObject) objects: BasicObject[];
+}
+
+export class WeaponsInHands{
+    @Type(() => Weapon) right: Weapon;
+    @Type(() => Weapon) left: Weapon;
 }

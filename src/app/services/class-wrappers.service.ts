@@ -9,9 +9,10 @@ import { PlayableCharacter } from '../models/characters/playable-character';
 export class ClassWrappersService {
 
   playableCharacterToClass(obj : {}) : PlayableCharacter{
-      
     return plainToClass(PlayableCharacter,obj);
-
+  }
+  playableCharacterToJSON(obj : PlayableCharacter) : {}{
+    return classToPlain(obj);
   }
 
   constructor() { }
