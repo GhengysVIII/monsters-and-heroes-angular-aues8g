@@ -12,7 +12,7 @@ export class ClassWrappersService {
     return plainToClass(PlayableCharacter,obj);
   }
   playableCharacterToJSON(obj : PlayableCharacter) : {}{
-    return classToPlain(obj);
+    return JSON.stringify(classToPlain(obj));
   }
 
   constructor() { }

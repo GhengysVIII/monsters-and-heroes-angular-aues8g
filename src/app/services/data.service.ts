@@ -24,9 +24,9 @@ export class DataService {
         this.changeParam(parametersMock);
         let cha : PlayableCharacter;
         myCharactersMock.forEach((c)=> {
-          //cha = new PlayableCharacter();
+          //let test = new PlayableCharacter();
           cha = wrap.playableCharacterToClass(c);
-          //console.log(wrap.playableCharacterToJSON(cha));
+          //console.log(wrap.playableCharacterToJSON(test));
           //console.log(JSON.stringify(cha));
           //console.log(cha);
           this.addMyCharacters(cha);

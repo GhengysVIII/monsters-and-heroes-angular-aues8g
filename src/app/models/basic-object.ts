@@ -1,16 +1,23 @@
+import { Type } from "class-transformer";
+
 import { ObjectType } from '../enums/object-type.enum';
+import { ObjectRarity } from '../enums/object-rarity.enum';
 import { Damage } from './others/damage';
 
 export class BasicObject {
   name: string;
   objType : ObjectType;
   defense : number;
-  rarity : number;
+  rarity : ObjectRarity;
   damages: Damage[];
-  constructor(objType: ObjectType, objData?: {}){
-    this.objType = objType;
-  }
 
-  
+  constructor(objType: ObjectType){
+    this.objType = objType;
+    this.name = "";
+    this.defense = 0;
+    this.rarity = ObjectRarity.unknown;
+    @Type(() => Damage) this.damages = new Array<Damage>();
+    
+  }
 
 }

@@ -1,5 +1,5 @@
 [
-  {"chartype":0,"id":0,"name":"Rockanos","hp":0,"wears":{"head":null,"body":null,"hands":null,"foots":null,"arms":null,"neck":null,"ringL":null,"ringR":null},"inventory":{"maxHeight":0,"objects":[]},"weapons":{"left":null,"right":null}},
-  {"chartype":0,"id":0,"name":"Djiinaos","hp":0,"wears":{"head":null,"body":null,"hands":null,"foots":null,"arms":null,"neck":null,"ringL":null,"ringR":null},"inventory":{"maxHeight":0,"objects":[]},"weapons":{"left":null,"right":null}},
-  {"chartype":0,"id":0,"name":"Ghengys","hp":0,"wears":{"head":null,"body":null,"hands":null,"foots":null,"arms":null,"neck":null,"ringL":null,"ringR":null},"inventory":{"maxHeight":0,"objects":[]},"weapons":{"left":null,"right":null}}
+  {"chartype":0,"id":1,"name":"Rockanos","hp":1000,"wears":{"head":null,"body":null,"hands":null,"foots":null,"arms":null,"neck":null,"ringL":null,"ringR":null},"inventory":{"maxHeight":0,"objects":[]},"weapons":{"left":null,"right":null}},
+  {"chartype":0,"id":2,"name":"Djiinaos","hp":300,"wears":{"head":null,"body":null,"hands":null,"foots":null,"arms":null,"neck":null,"ringL":null,"ringR":null},"inventory":{"maxHeight":0,"objects":[]},"weapons":{"left":null,"right":null}},
+  {"chartype":0,"id":3,"name":"Ghengys","hp":300,"wears":{"head":null,"body":null,"hands":null,"foots":null,"arms":null,"neck":null,"ringL":null,"ringR":null},"inventory":{"maxHeight":0,"objects":[]},"weapons":{"left":null,"right":null}}
 ]

@@ -31,7 +31,7 @@ export class BasicCharacter {
     this.hp = 0;
     this.wears = new Wears();
     this.wears.arms = null;
-    this.wears.body = null;
+    this.wears.body = new Armor();
     this.wears.foots = null;
     this.wears.hands = null;
     this.wears.head = null;
