@@ -24,34 +24,17 @@ export class DataService {
         this.changeParam(parametersMock);
         let cha : PlayableCharacter;
         myCharactersMock.forEach((c)=> {
-          //let test = new PlayableCharacter();
-          cha = wrap.playableCharacterToClass(c);
-          //console.log(wrap.playableCharacterToJSON(test));
-          //console.log(JSON.stringify(cha));
-          //console.log(cha);
+          cha = wrap.ToClass(c);
           this.addMyCharacters(cha);
         });
         console.log(this.myCharacters);
       }
       finally{}
-      
-      /*try(){
-      // Code which can cause an exception.
-      this.changeParam(parametersMock);
-            let cha : PlayableCharacter;
-            myCharactersMock.forEach((c)=> {
-              cha = wrap.playableCharacterToClass(c);
-              console.log(JSON.stringify(cha));
-              console.log(cha);
-              this.addMyCharacters(cha);
-            });
-      }
-      catch (Exception ex)
-      {
-        console.log("import not work");
-      // Code to handle exception
-      }*/ 
+    } else { // not in demo mode
+
+      //loading data from server.
     }
+
   }
 
 
