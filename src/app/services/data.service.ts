@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import mExecParams from '../execParams.json'
+
 import { ClassWrappersService } from './class-wrappers.service'
 import { MocksService } from './mocks.service'
 
@@ -9,47 +11,47 @@ import { Armor } from '../models/objects/armor';
 
 @Injectable()
 export class DataService {
-
-  params : {};
+ 
+ //---------------------------
+ // Private Vars
+  private _execParams : {} ;
+ //---------------------------
+ // Public Vars
+  userParams : {} ;
   myCharacters : PlayableCharacter[];
-
+  get execParams() { return mExecParams ; }
+ //---------------------------
+  
 
   constructor(private wrap : ClassWrappersService,
               private mocks: MocksService){
-    this.myCharacters = new Array<PlayableCharacter>();
-    this.changeParam(this.mocks.execParams);
-    if (this.params['demo'] === true){ // loading mocks if in demo
-      try{
-        this.changeParam(this.mocks.parameters);
-        let cha : PlayableCharacter;
-        this.myCharacters.forEach((c)=> {
-          cha = wrap.ToClass(c);
-          this.addMyCharacters(cha);
-        });
-        console.log(this.myCharacters);
-      }
-      finally{}
-    } else { // not in demo mode
 
-      //loading data from server.
+    // Initiate vars
+    this.myCharacters = new Array<PlayableCharacter>();
+    
+    // get launch parameters; 
+    this._execParams = mExecParams;
+    
+    // get data and user parameters from mocks or server
+    if (this.execParams['demo'] === false){ //loading data from server.
+      this.loadServers();
+    } else { 
+      // loading mocks if in demo
+      this.loadMocks();
     }
 
   }
 
+  loadMocks(){
+    try{
+      this.myCharacters = this.mocks.myCharacters;
+    } catch(e){
+      console.error(e);
+    }
 
-  changeParam(parameters : {}){
-    this.params = parameters;
+    finally{}
   }
-
-  addMyCharacters(myChar : PlayableCharacter){
-    this.myCharacters.push(myChar);
+  loadServers(){
+    //todo
   }
-  remMyCharacters(index : number){
-    this.myCharacters.splice(index, 1);
-  }
-
-  loadmocks(){
-
-  }
-
 }
