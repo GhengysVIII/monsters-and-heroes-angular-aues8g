@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { ClassWrappersService } from './class-wrappers.service'
+import { MocksService } from './mocks.service'
 
 import { PlayableCharacter } from '../models/characters/playable-character';
 import { Armor } from '../models/objects/armor';
 
-import { default as execParams } from '../execParams.json'
-import { default as parametersMock } from '../mocks/parameters-mock.json'
-import { default as myCharactersMock } from '../mocks/my-characters-mock.json'
 
 @Injectable()
 export class DataService {
@@ -16,14 +14,15 @@ export class DataService {
   myCharacters : PlayableCharacter[];
 
 
-  constructor(private wrap : ClassWrappersService){
+  constructor(private wrap : ClassWrappersService,
+              private mocks: MocksService){
     this.myCharacters = new Array<PlayableCharacter>();
-    this.changeParam(execParams);
+    this.changeParam(this.mocks.execParams);
     if (this.params['demo'] === true){ // loading mocks if in demo
       try{
-        this.changeParam(parametersMock);
+        this.changeParam(this.mocks.parameters);
         let cha : PlayableCharacter;
-        myCharactersMock.forEach((c)=> {
+        this.myCharacters.forEach((c)=> {
           cha = wrap.ToClass(c);
           this.addMyCharacters(cha);
         });
@@ -39,7 +38,7 @@ export class DataService {
 
 
   changeParam(parameters : {}){
-    this.params = {...this.params,...parameters};
+    this.params = parameters;
   }
 
   addMyCharacters(myChar : PlayableCharacter){
@@ -49,6 +48,8 @@ export class DataService {
     this.myCharacters.splice(index, 1);
   }
 
+  loadmocks(){
 
+  }
 
 }

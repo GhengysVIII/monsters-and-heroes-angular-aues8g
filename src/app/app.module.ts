@@ -20,6 +20,7 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 //--------
 import { DataService } from './services/data.service';
 import { ClassWrappersService } from './services/class-wrappers.service';
+import { MocksService } from './services/mocks.service';
 
 //Other
 //-----
@@ -38,6 +39,6 @@ const appRoutes: Routes = [
   ],
   declarations: [ AppComponent, HeaderComponent, FooterComponent, WelcomePageComponent, NotFoundPageComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [DataService, ClassWrappersService]
+  providers: [DataService, ClassWrappersService, MocksService]
 })
 export class AppModule { }
